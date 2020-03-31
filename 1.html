@@ -2,13 +2,41 @@
 <html>
 <head>
 <title>WEB1 - HTML</title>
-<meta charset="utf-8"
+<meta charset="utf-8">
+<style>
+body{
+  margin:0;
+}
+ a {
+   color:black;
+   text-decoration: none;
+ }
+ .saw {
+   color:gray;
+ }
+ #active {
+   color:red;
+ }
+ h1 {
+   font-size:45px;
+   text-align: center;
+   border-bottom:1px solid gray;
+   margin:0;
+   padding:20px;
+ }
+ ol{
+   border-right:1px solid gray;
+   width:100px;
+   margin:0;
+   padding:20px;
+ }
+</style>
 </head>
 <body>
   <h1><a href="index.html">WEB</a></h1>
 <ol>
-  <li><a href="1.html">HTML</a></li>
-  <li><a href="2.html">CSS</a></li>
+  <li><a href="1.html"class="saw">HTML</a></li>
+  <li><a href="2.html"class="saw active" id="active">CSS</a></li>
   <li><a href="3.html">JavaScript</a></li>
 <ul>
 <li>egoing</li>
@@ -17,14 +45,15 @@
 </ul>
 </ol>
 <h2>html이란 무엇인가</h2>
+<p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7T7r_oSp0SE?start=140"
+frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
 <p><a href="https://www.w3.org/TR/html51/" target="_blank" title="html5 speicification">Hypertext markup language (HTML)</a> is the standard markup language for
 <strong>creating <u>web</u> pages</strong> and web applications.
 <img src="image1.jpg" width="100%">
 </p><p style="margin-top:45px;">맨체스터 유나이티드는 과연 우승 할 수 있을까?<p>
   2년안에는 그래도 가능하지 않을까? </p>가능 할지 안할지 모르겠네..</p>
-
-
-
 <table>
   <tr>
     <td>head</td>
@@ -39,6 +68,10 @@
     <td>97.9%</td>
   </tr>
 </table>
+
+<input type="checkbox">
+<input type="checkbox">
+
 
 </body>
 </html>
