@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>태그 요소 정리</title>
+        <style type="text/css">
+        h1{
+            font-size: 20px;
+        }
+        h2{
+            font-size: 15px;
+        }
+        #description p {
+            font-size: 12px;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>성적표</h1>
+        <div id="description">
+            <h2>평가</h2>
+            <p>
+                부모님의 각별한 관심과 애정이 필요합니다.<br/>
+                이 학생은 성적이<span class="highlight">우수</span>하였으나
+                노는데 심취하여 성적이 크게 떨어졌습니다.
+            </p>
+            <p>
+                <span class="highlight">머리는 좋은 아이입니다.</span><br/>
+                약간의 의지만으로도 다른 아이들보다 남다른 성취를 이루고 있습니다.
+            </p>
+        </div>
+        <div id="scoreContainer">
+            <h2>점수</h2>
+            <table border="1" style="width: 100%;">
+                <caption>2년 간의 성적표</caption>
+                <thead>
+                    <tr><th>과목</th><th>국어</th><th>수학</th></tr>
+                </thead>
+                <tbody id="year1Container">
+                    <tr><th>1학년 1학기</th><td>100점</td><td>80점</td></tr>
+                    <tr><th>1학년 2학기</th><td>90점</td><td>70점</td></tr>
+                </tbody>
+                <tbody id="year2Container">
+                    <tr><th>2학년 1학기</th><td>60점</td><td>70점</td></tr>
+                    <tr><th>2학년 2학기</th><td>60점</td><td>30점</td></tr>
+                </tbody>
+                <tfoot>
+                    <tr><th>총점</th><td>310점</td><td>250점</td></tr>
+                </tfoot>
+            </table>
+        </div>
+    </body>
+</html>
