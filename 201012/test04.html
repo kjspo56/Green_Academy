@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>OOP JavaScript</title>
+        <script type="text/JavaScript">
+        /**
+        * 모든 유닛의 가장 기본적인 부분에 대한 정의
+        */
+
+        var Unit = function (hp, name) {
+            this.fullHelth = hp;
+            this.helth = hp;
+            this.name = name;
+            this.power = 1;
+            this.speed = 1000;
+            this.level = 1;
+            this.target = null;
+            this.attackId = null;
+            var self = this;
+            
+            // 이 유닛이 살아있는지 확인하는 메소드
+
+            this.isDead = function () {
+                return (self.helth < 0);
+            };
+            //유닛의 공격활동 메소드
+            this.attack = function () {
+                if(self.target) {
+                    self.target.damage(self.power);
+                    self.board.innerHTML = [
+                        self.name, '가(이)',
+                        self.target.name, '에게',
+                        self.power + '의 손상을 주었습니다',
+                        '남은 피(', self.target.helth, ')<br/>'
+                    ].join('') + self.board.innerHTML;
+
+                    if(self.target.isDead()) {
+                        self.board.innerHTML = self.target.name +'가 생명력이 없습니다. 승리!!<br/>' + self.board.innerHTML;
+                        self.stopAttack();
+                        self.target = null;
+                        self.target.target = null;
+                    }
+                }
+            };
+            // 유닛의 피해 메소드
+            this.damage = function(power) {
+                self.helth -= power;
+                if(self.isDead()){
+                    self.stopAttack();
+                    self.board.innerHTML = '생명력이 없습니다. 패배!!<br/>' + self.board.innerHTML;
+                }
+            };
+            //유닛의 레벨 업 메소드
+            this.levelUp = function (hp, power, speed) {
+                self.level++;
+                self.fullHelth +=hp;
+                self.helth = self.fullHelth;
+                self.power += power;
+                self.speed -= speed;
+                self.board.innerHTML = '레벨 업!' + self.level + '레벨 달성!.<br/>' + self.board.innerHTML;                
+            };
+        };
+
+        /**
+        * 유닛을 상속받는 휴먼을 정의
+        */
+        var Human = function (name) {
+            Unit.apply(this, [50, name]);
+            this.board = document.getElementById('fightLog1');
+            var self = this;
+            this.expFull = function () {
+                self.levelUp(40, 2, 50);
+            };
+            this.startAttack = function (target) {
+                self.target = target;
+                self.attackId = setInterval(self.attack, self.speed);
+                
+            };
+            this.stopAttack = function () {
+                self.target = null;
+                clearInterval(self.attackId);
+            };
+        };
+        /**
+        * 유닛을 상속받는 매지션을 정의
+        */
+        var Magician = function (name) {
+            Unit.apply(this, [40, name]);
+            this.skillSpeed = 3000;
+            this.skillId = null;
+            this.skillPower = 2;
+            this.board = document.getElementById('fightLog2');
+            var self = this;
+            this.skill = function () {
+                if(!self.target || self.target.isDead()){
+                    self.stopAttack();
+                } else {
+                    self.target.damage(self.skillPower);
+                    self.board.innerHTML = [
+                        self.name, '가(이)',
+                        self.target.name, '에게',
+                        self.power + '의 스킬 공격을 주었습니다.',
+                        '남은 피(', self.target.helth, ')<br/>'
+                    ].join('')+self.board.innerHTML;
+                }
+            };
+            this.expFull = function () {
+                self.levelUp(30,1,20);
+                self.skillPower += 2;
+                self.skillSpeed -= 30;
+            };
+            this.startAttack = function (target) {
+                self.target = target;
+                self.attackId = setInterval(self.attack, self.speed);
+                self.skillId = setInterval(self.skill, self.skillSpedd);
+            };
+            this.stopAttack = function () {
+                self.target = null;
+                clearInterval(self.attackId);
+                clearInterval(self.skillId);
+            };
+        };
+
+        window.onload = function () {
+            // 새로운 휴먼과 매지션 객체를 생성 후 전역 변수에 할당
+            man = new Human('Man');
+            woman = new Magician('Woman');
+        }
+        function startWar() {
+            // 혹시 공격중이라면 공격 멈춤
+            man.stopAttack();
+            woman.stopAttack();
+            // 생성된 휴먼과 매지션 객체의 기록 초기화
+            man.board.innerHTML = '';
+            woman.board.innerHTML = '';
+            // 생성된 객체의 이름을 지정
+            man.name = document.getElementById('humanName').value;
+            woman.name = document.getElementById('MagicianName').value;
+            //공격 시작
+            man.startAttack(woman);
+            woman.startAttack(man);
+        </script>
+    </head>
+    <body>
+    <h1>타격 게임 시뮬레이션</h1>
+    <div>
+    <input type="text" id="humanName" /> Human 이름
+    <button type="button" onclick="man.expFull();">레벨 업</button>
+    <br/>
+    <input type="text" id="MagicianName"/> Magician 이름
+    <button type="button" onclick="woman.expFull();">레벨 업</button>
+    <br/>
+    <button type="button" onclick="startWar();">전투 시작</button>
+    <button type="button" onclick="woman.expFull();man.expFull();"> 동시 레벨 업</button>
+    <br/>
+    <div>
+    <h3>Human 전투 로그</h3>
+    <div id="fightLog1" style="height: 150px; overflow: scroll;"></div>
+    <h3>Magician 전투 로그</h3>
+    <div id="fightLog2" style="height: 150px; overflow:scroll;"></div>
+    </div>
+    </div>
+    </body>
+</html>
