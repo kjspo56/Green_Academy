@@ -1,0 +1,63 @@
+function init_Pipe_DeteriorationaForm(){$("body").append('<div id="Pipe_Deterioration_Form" class="mainBottom_Form"><a
+        href="#" id="Pipe_Deterioration_Form-closer" class="ol-popup-closer"></a>
+    <div id="Pipe_Deterioration_title" class="mainBottom_title">Pipe_Deterioration Layer</div>
+    <div id="Pipe_Deterioration_bady" class="mainBottom_bady">
+        <div id="Pipe_Deterioration_sub_title" style="color: #000000;font-size: 15px;height: 18px;text-align: center;">
+            블록</div>
+        <div id="Pipe_Deterioration_TableDiv" class="mainBottom_TableDiv" style="top:20px;">
+            <div id="Pipe_chartContainer1"
+                style="height:100%; width:34%; overPipe:hidden;float: left;text-align: left;"></div>
+            <div id="Pipe_chartContainer2"
+                style="height:100%; width:33%; overPipe:hidden;float: left;text-align: left;"></div>
+            <div id="Pipe_chartContainer3"
+                style="height:100%; width:33%; overPipe:hidden;float: left;text-align: left;"></div>
+        </div>
+    </div>
+    <div id="Pipe_Deterioration_ResizeBtn" class="mainBottom_ResizeBtn"></div>
+    <div id="Pipe_Deterioration_footer" class="mainBottom_footer"></div>
+</div>
+'),Init_Pipe_DeteriorationInfoForm(),document.getElementById("Pipe_Deterioration_Form-closer").onclick=function(){Pipe_DeteriorationForm_Close(),flickrLayer_bottom.getSource()&&(flickrLayer_bottom.getSource().clear(),flickrLayer_removeFilter(flickrLayer_bottom))},$("#btn_PipeDeterioration").click(function(){document.getElementById("BLOK_div_adresArea").style.display="none",Sel_MapCenterBLOK&&SearchAddressBLOK_MapMoveCenter(Sel_MapCenterBLOK,Pipe_DeteriorationForm_Show)})}function
+Init_Pipe_DeteriorationInfoForm(){$("#Pipe_Deterioration_Form").width(document.getElementById("map").clientWidth),$("#Pipe_Deterioration_Form").height(300);Init_ResizeForm("Pipe_Deterioration_Form","Pipe_Deterioration_title","Pipe_Deterioration_footer",200,200)}function
+Pipe_DeteriorationForm_Close(){document.getElementById("Pipe_Deterioration_Form").style.display="none",Pipe_DeteriorationDateClear()}function
+Pipe_DeteriorationForm_Show(e){hidden_MeasureTooltip(),MagBox_overlayShow(void
+0,""),FLOW_AccidentForm_Close(),Pipe_Facility_StatisticsForm_Close(),Pipe_NetworkForm_Close(),$("#Pipe_Deterioration_Form").css("top",""),$("#Pipe_Deterioration_Form").css("bottom",32),$("#Pipe_Deterioration_Form").css("left",""),$("#Pipe_Deterioration_Form").css("right",0),$("#Pipe_Deterioration_Form").height(350),$("#Pipe_Deterioration_Form").width(document.getElementById("map").clientWidth),document.getElementById("Pipe_Deterioration_title").innerHTML="관망
+노후도
+평가",document.getElementById("Pipe_Deterioration_sub_title").innerHTML=Sel_MapCenterBLOK,document.getElementById("Pipe_Deterioration_Form").style.display="block",Pipe_DeteriorationForm_Calc(e)}function
+Pipe_DeteriorationDateClear(){AccidentLayer.getSource().clear(),Pipe_DeteriorationFeaturesALL=[],Deterioration_chart1&&Deterioration_chart1.destroy(),Deterioration_chart2&&Deterioration_chart2.destroy(),Deterioration_chart3&&Deterioration_chart3.destroy()}var
+Deterioration_chart1,Deterioration_chart2,Deterioration_chart3,Pipe_DeteriorationFeaturesALL=[];function
+Pipe_DeteriorationForm_Calc(e){Pipe_DeteriorationDateClear();var t=e.getGeometry(),i=t.getExtent();LoadingWithMask();var
+o=geoserverURL+GEOServerWMS_Store+"/wfs?service=WFS&version=1.1.0&request=GetFeature&outputFormat=application/json&srsName=EPSG:900913&typeName=WTL_PIPE&cql_filter=BBOX(the_geom,"+i.join(",")+",'EPSG:3857')",r=encodeURI(o);CALL_XMLHTTP(r,function(e){var
+i=stringToDate(Sys_GETDATE,"YYYY-MM-DD HH:NN:SS"),o=0,r=-Number.MAX_VALUE,a=Number.MAX_VALUE,n={label:"10년
+아하",label2:"10년",LEN:0,COUNT:0},l={label:"10~15년",label2:"15년",LEN:0,COUNT:0},_={label:"15~20년",label2:"20년",LEN:0,COUNT:0},s={label:"20~25년",label2:"25년",LEN:0,COUNT:0},c={label:"25년
+이상",label2:"25년 이상",LEN:0,COUNT:0},d={label:"None",label2:"None",LEN:0,COUNT:0},m={label:"150mm
+이하",label2:"150mm",LEN:0,COUNT:0},p={label:"150~350mm",label2:"350mm",LEN:0,COUNT:0},N={label:"350~600mm",label2:"600mm",LEN:0,COUNT:0},P={label:"600~1000mm",label2:"1000mm",LEN:0,COUNT:0},L={label:"1000~2000mm",label2:"2000mm",LEN:0,COUNT:0},D={label:"2000mm
+이상",label2:"2000mm",LEN:0,COUNT:0},C={label:"None",label2:"None",LEN:0,COUNT:0},b={label:"양호",LEN:0,COUNT:0,color:"#66CC00"},h={label:"보통",LEN:0,COUNT:0,color:"#0099FF"},u={label:"불량",LEN:0,COUNT:0,color:"#990033"},y={label:"None",LEN:0,COUNT:0,color:"#cccccc"},v=new
+ol.style.Style({stroke:new ol.style.Stroke({color:"#66CC00",width:5})}),E=new ol.style.Style({stroke:new
+ol.style.Stroke({color:"#0099FF",width:5})}),T=new ol.style.Style({stroke:new
+ol.style.Stroke({color:"#990033",width:7})}),O=new ol.style.Style({stroke:new
+ol.style.Stroke({color:"#cccccc",width:5})}),f=(new ol.format.GeoJSON).readFeatures(e);if(f){for(var F=0;F
+<f.length;F++){var g=f[F],S=g.getGeometry();if(Get_intersection_Simple(t,S)){var
+    M=g.clone(),U=M.values_.PIP_LEN;U||(U=Number(U))<=0&&(U=Get_GeoLineDistance(S)),o+=U;var
+    B=-1,w=-1,I=M.values_.IST_YMD;if(I&&I.length>
+    =4){8!=I.length&&(I=I.substr(0,4)+"0101"),I=(I=I.substr(0,8)).substr(0,4)+"-"+I.substr(4,2)+"-"+I.substr(6,2);var
+    A=stringToDate(I,"YYYY-MM-DD"),k=(i-A)/1e3/60/60/24,x=Math.abs(k/365);x
+    <=10?(w=1,n.LEN+=U,n.COUNT+=1):x<=15?(w=.75,l.LEN+=U,l.COUNT+=1):x<=20?(w=.5,_.LEN+=U,_.COUNT+=1):x<=25?(w=.25,s.LEN+=U,s.COUNT+=1):(w=0,c.LEN+=U,c.COUNT+=1),B=x}else
+        d.LEN+=U,d.COUNT+=1;var H=M.values_.PIP_DIP,G=-1;H&&Number(H)>
+        0?150>=Number(H)?(G=0,m.LEN+=U,m.COUNT+=1):350>=Number(H)?(G=.2,p.LEN+=U,p.COUNT+=1):600>=Number(H)?(G=.4,N.LEN+=U,N.COUNT+=1):1e3>=Number(H)?(G=.6,P.LEN+=U,P.COUNT+=1):2e3>=Number(H)?(G=.8,L.LEN+=U,L.COUNT+=1):(G=1,D.LEN+=U,D.COUNT+=1):(C.LEN+=U,C.COUNT+=1);var
+        J=1,W=M.values_.JHT_CDE;W&&("JHT001"==W?J=.25:"JHT002"==W?J=1:"JHT003"==W?J=1:"JHT004"==W?J=.5:"JHT008"==W&&(J=.25));var
+        $=.75,Y=M.values_.MOP_CDE;Y&&("MOP010"==Y||"MOP003"==Y?$=0:"MOP004"==Y||"MOP005"==Y||"MOP028"==Y||"MOP036"==Y||"MOP032"==Y||"MOP041"==Y?$=1:"JHT003"==Y?$=.25:"MOP019"==Y?$=.5:"MOP001"==Y?$=.75:"MOP044"!=Y&&"MOP006"!=Y&&"MOP007"!=Y||($=1));var
+        z=-1;w>-1&&G>-1&&(z=100*(z=.37*w+.03*G+.05*J+.15*$)/60,(z*=100)>0&&(r=Math.max(r,z),a=Math.min(a,z))),M.values_.PIP_LEN=U,M.values_.PIPE_AGE=B,M.values_.Deterioration=z,M.values_.Condition="None",M.values_.Selected_OK=!0,M.values_.layerName="WTL_PIPE_LM",M.values_.layerAlias="상수도관로",M.values_.HINT=M.values_.PIP_LBL,z>-1?z>=60?(M.values_.Condition="Excellent",b.LEN+=U,b.COUNT+=1,M.setStyle(v)):z>=45?(M.values_.Condition="Average",h.LEN+=U,h.COUNT+=1,M.setStyle(E)):(M.values_.Condition="Bad",u.LEN+=U,u.COUNT+=1,M.setStyle(T)):(M.values_.Condition="None",y.LEN+=U,y.COUNT+=1,M.setStyle(O)),Pipe_DeteriorationFeaturesALL.push(M)}}AccidentLayer.getSource().addFeatures(Pipe_DeteriorationFeaturesALL)}document.getElementById("Pipe_Deterioration_sub_title").innerHTML=Sel_MapCenterBLOK+"
+        (총길이: "+(o/1e3).toFixed(0)+"
+        km)",Pipe_Deterioration_chartLoad([b,h,u,y],[n,l,_,s,c,d],[m,p,N,P,L,D,C]),closeLoadingWithMask()},function(e){closeLoadingWithMask()})}function
+        Pipe_Deterioration_chartLoad(e,t,i){var
+        o;Deterioration_chart1&&Deterioration_chart1.destroy(),Deterioration_chart2&&Deterioration_chart2.destroy(),Deterioration_chart3&&Deterioration_chart3.destroy();for(var
+        r=e.length-1;r>=0;r--)(o=e[r].LEN)>0?e[r].y=o/1e3:e.splice(r,1);for(r=t.length-1;r>=0;r--)(o=t[r].LEN)>0?t[r].y=o/1e3:t.splice(r,1);for(r=i.length-1;r>=0;r--)(o=i[r].LEN)>0?i[r].y=o/1e3:i.splice(r,1);(Deterioration_chart1=new
+        CanvasJS.Chart("Pipe_chartContainer1",{animationEnabled:!0,title:{text:"노후도
+        평가",fontFamily:"Arial",fontSize:15},data:[{type:"pie",startAngle:240,indexLabel:"{label} :
+        #percent%",toolTipContent:"<b>{label}:</b> #percent% ({y}km :
+        {COUNT}곳)",dataPoints:e}]})).render(),(Deterioration_chart2=new
+        CanvasJS.Chart("Pipe_chartContainer2",{animationEnabled:!0,title:{text:"연령(년)",fontFamily:"Arial",fontSize:15},data:[{type:"pie",startAngle:240,indexLabel:"{label}
+        : #percent%",toolTipContent:"<b>{label}:</b> #percent% ({y}km :
+        {COUNT}곳)",dataPoints:t}]})).render(),(Deterioration_chart3=new
+        CanvasJS.Chart("Pipe_chartContainer3",{animationEnabled:!0,title:{text:"관구경(mm)",fontFamily:"Arial",fontSize:15},data:[{type:"pie",startAngle:240,indexLabel:"{label}
+        : #percent%",toolTipContent:"<b>{label}:</b> #percent% ({y}km : {COUNT}곳)",dataPoints:i}]})).render()}
