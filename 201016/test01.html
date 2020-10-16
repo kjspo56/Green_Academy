@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+            <title>TEST</title>
+    </head>
+    <body>
+        <script>
+            //openlayers 지도 띄우기
+            var iconFeature = new ol.Feature({
+                //아이콘 위치좌표
+                geometry: new ol.geom.Point([14126300.82, 4512500.74]),
+                name: 'Iron Man',
+            });
+
+            var iconStyle = new ol.style.Style({
+                image: new ol.style.Icon(({
+                    anchor: [1, 46],
+                    anchorXUnits: 'fraction',
+                    anchorYUnits: 'pixels',
+                    src: 'https://openlayers.org/en/v3.20.1/examples/data/icon.png'
+                }))
+            });
+
+            iconFeature.setStyle(iconStyle);
+            var vectorSource = new ol.source.Vector({
+                feature: [iconFeature]
+            });
+
+            var vectorLayer = new ol.layer.Vector({
+                source: vectorSource
+            });
+
+            var rastre = new ol.layer.Tile({
+                source : new ol.source.XYZ({
+                    url: 'http://xdworld.vworld.kr:8080/2d/Base/201802/{z}/{x}/{y}.png'
+                })
+            });
+
+            var map = new ol.map({
+                layers: [raster, vectorLayer],
+                target : document.getElementById('map'),
+
+                view: new ol.View({
+                    center : [14129600.82, 4512500.74],
+                    maxZoom: 19,
+                    zoom: 14
+                })
+            });
+        </script>
+
+    </body>
+</html>

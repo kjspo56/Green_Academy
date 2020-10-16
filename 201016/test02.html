@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>sample</title>
+        <script type="text/javascript">
+        function viewContent(){
+            document.write('사실은 보여줄 게 아무것도 없어요.');
+        }
+
+        var timer = window.setTimeout('viewContent()', 30000);
+
+        if(confirm('카운트다운은 이미 시작되었습니다. 30초간 기다릴테냐?')){
+
+        } else {
+            window.clearTimeout(timer);
+        }
+        </script>
+    </head>
+</html>
