@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if</title>
+    <style type="text/css">
+        body {
+            font-size: 30px;
+        }
+    </style>
+    <script type="text/javascript">
+        var i = prompt("비밀번호를 입력하세요", "숫자만 입력하세요");
+
+        if (i == 1) {
+            window.alert("정답입니다~^^");
+        } else {
+            document.write("정답입니다.하하");
+        }
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<!--
+    ** 함수 **
+    미리 약속되어 있는 명령어
+
+    1. 내장 함수 - 만들어져 있는 명령어
+    2. 사용자 정의 함수 - 만들어서 사용하는 명령어
+
+    ** 조건문 **
+    1. 조건의 결과에 따라 다르게 문장을 실행
+    2. if
+    3. switch
+
+    ** if문 **
+    조건이 참인 경우 다음 문장을 실행
+
+    1. if(조건) 조건이 참인 경우 실행할 문장
+
+    2. if문의 다수 사용
+        - 각각의 조건이 독립적
+
+        if(조건1)  T T 123
+            문장1  T F 
+            문장2  F T
+        if(조건2)  F F
+            문장3
+
+    3. 중괄호 사용
+    - 여러 개의 문장을 하나의 조건문에 종속
+
+    4. if - else
+    - if(조건) {
+        조건이 참인 경우 실행할 문장
+    } else { // if의 조건이 참이 아닌 나머지 모두
+    
+    }
+
+    5. if ~ else if
+    - if(조건1) {
+        조건1이 참인 경우 실행할 문장
+    } else if(조건2) {
+        조건1이 참이 아니고 조건2가 참인 경우 실행할 문장
+    }
+
+    6. if ~ else if ~ else
+    - if(조건1){
+        조건1이 참인 경우 실행할 문장
+    } else if(조건2) {
+        조건1이 참이 아니고 조건2가 참인 경우 실행할 문장
+    } else {
+        조건 1과 조건2가 참이 아닌 경우 실행할 문장
+    }
+
+    * switch 문 *
+
+    switch(변수) {
+        case "값1" : 변수값이 "값1"인 경우 실행할 문장
+            break;
+        case "값2" : 변수값이 "값2"인 경우 실행할 문장
+            break;
+        case "값3" : 변수값이 "값3"인 경우 실행할 문장
+            break;
+        default : 변수값이 "값1", "값2", "값3"이 아닌 경우 실행할 문장
+    }
+
+    * 함수
+    1. 내장함수 - 만들어져 있는 명령어
+    2. 사용자 정의함수 - 만들어서 사용하는 명령어
+
+    ** 사용자 정의 함수 **
+    1. 사용자가 임의로 생성한 함수
+    2. 선언문 : function
+    3. function 함수명(매개변수, 매개변수...) {
+        실행문
+        실행문
+        . 
+        . 
+    }
+    4. 호출시에만 실행
+    5. 사용자 정의 함수 호출방법
+        - 단독 실행
+        - 변수에 의한 실행
+        - 다른 함수에 의한 실행
+        - 이벤트에 의한 실행(******)
+    6. 함수명 규칙 : 변수명 규칙과 동일
+
+    ** 이벤트 **
+    1. 언제
+    2. 이벤트 : 상황, ~~하다
+    3. 이벤트 핸들러 : 이벤트 사용, ~~ 했을때 이벤트 앞에 on 추가
+
+    이벤트              이벤트 핸들러
+    load                onload
+    unload              onunload
+    mouseover           onmouseover
+    mouseout            onmouseout
+    focus               onfocus
+    blur                onblur
+    click               onclick
+    mouseown            onmouseown   
+    mouseuo             onmouseuo
+-->

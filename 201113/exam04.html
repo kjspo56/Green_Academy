@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+    <style type="text/css">
+    button {font-size: 24px}
+    </style>
+    <script type="text/javascript">
+        function testFunc(){
+            alert("함수를 실행하였습니다.");
+        };
+
+        //함수명 실행
+        //testFunc();
+
+        //변수에 의한 실행
+        //var i = testFunc();
+
+        //다른 함수에 의한 실행
+        setTimeout("testFunc()", 5000); //지정된 시간이 지나면 지정된 함수를 호출. 5s. 자바스립트는 1/1000초를 씀
+    </script>
+</head>
+<!--이벤트에 의한 실행-->
+<body onload="testFunc()">
+    
+</body>
+</html>
