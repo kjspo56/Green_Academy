@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체접근</title>
+    <style type="text/css">
+        body,
+        input,
+        button {
+            font-size: 24px
+        }
+        .redText{color:red;border:2px solid #f00}
+        .blueText{color:blue}
+        .greenText{color:green}
+    </style>
+    <!--style의 변경은 선택적으로 그때그때 다르게 사용해야함-->
+    <script type="text/javascript">
+        function redColor(){
+            document.getElementById("changeText").className = "redText";
+        }
+        function blueColor(){
+            document.getElementById("changeText").className = "blueText";
+        }
+        function greenColor(){
+            document.getElementById("changeText").style.color = "greenText";
+        }
+    
+    </script>
+</head>
+
+<body>
+    <p id="changeText">클릭한 버튼에 따라 다른 스타일이 적용 됩니다.</p>
+    <p><button type="button" onclick="redColor()">빨강</button></p>
+    <p><button type="button" onclick="blueColor()">파랑</button></p>
+    <p><button type="button" onclick="greenColor()">초록</button></p>
+</body>
+
+</html>

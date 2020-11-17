@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체접근</title>
+    <style type="text/css">
+        body,
+        input,
+        button {
+            font-size: 24px
+        }
+    </style>
+    <script type="text/javascript">
+    function changeColor(){
+            var tcolor = document.getElementById("sc").value;
+            document.getElementById("changeText").style.color = tcolor; //스크립트에서는 특수문자 불가. backgroud-color가 아니라 backgroundColor로 표기
+    };
+    </script>
+</head>
+
+<body>
+    <p id="changeText">버튼을 클릭하면 이 문장의 글자색이 변합니다.</p>
+    <p><input type="text" id="sc" name="sc">색상 입력</p>
+    <p><button type="button" onclick="changeColor()">글자 색상 바꾸기</button></p>
+</body>
+
+</html>

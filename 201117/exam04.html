@@ -1,0 +1,49 @@
+<!--
+    ** DOM(Document Object Model) 방식 **
+    - html 요소에 접근하는 표준화된 방식
+    - 기존 name 속성과 태그별 접근 방식에서 벗어나 오브젝트의 종류에 상관없이 id 속성을 사용하여 요소에 접근하는 방식
+
+    * getElementById("요소") 객체의 생성
+
+    * DOM 코어 / HTML-DOM
+        DOM 코어 : 스크립트가 지원되는 모든 기기에서 사용
+        ex) object.getAttribute("src")
+
+        HTML-DOM : 웹 브라우저에서만 사용 가능
+        ex) object.src
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        body,
+        input,
+        button {
+            font-size: 24px
+        }
+    </style>
+    <script type="text/javascript">
+        function printText(){
+            // 기존 form 요소 선택 : name 속성값 또는 배열
+            //   document.form1.txt1.value = "글자 출력하기";
+            // getElementById("선택할 요소의 ID값")
+            document.getElementById("txt1").value="글자 출력하긔";
+        };
+    </script>
+</head>
+
+<body>
+    <form name="form1" action="" method="">
+        <p>* 버튼을 클릭하면 텍스트 필드에 글자가 나타납니다.</p>
+        <p>
+            <input type="text" name="txt1" id="txt1">
+            <button type="button" onclick="printText()">글자 출력</button>
+        </p>
+    </form>
+</body>
+
+</html>
