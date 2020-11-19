@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        body,
+        input,
+        button {
+            font-size: 24px;
+        }
+
+        .redText {
+            color: red;
+            border: 2px solid #f00
+        }
+
+        .blueText {
+            color: blue
+        }
+
+        .greenText {
+            color: green
+        }
+    </style>
+    <script type="text/javascript">
+        /* 문서가 준비되었을 때
+        window.onload = function(){};
+        */
+
+        window.onload = function () {
+            /* 객체 생성 : html 요소를 가져와 변수에 저장하기 */
+            var rBtn = document.getElementById("rBtn");
+
+            /*
+            rBtn.onclick = function () {
+                document.getElementById("changeText").className = "redText"
+            };
+            rBtn.onmouseout = function(){
+                document.getElementById("changeText").className = "redText"
+            };*/
+
+            //obj.addEventListener("event", function){
+            rBtn.addEventListener("click", function () {
+                document.getElementById("changeText").className = "redText"
+            });
+
+    </script>
+</head>
+
+<body>
+    <p id="changeText">클릭한 버튼에 따라 다른 스타일이 적용 됩니다.</p>
+    <p><button type="button" id="rBtn">빨강</button></p>
+    <p><button type="button" id="bBtn">파랑</button></p>
+    <p><button type="button" id="gBtn">초록</button></p>
+</body>
+
+</html>
+
+/* HTML-DOM : 웹 브라우저에서만 사용 가능
+    ex) object.src
+
+    ** getElementBy 방식 vs querySelector 방식
+
+    * getElementBy
+    1. getElementById - id 속성을 가진 요소 선택
+    html : <div id="test"></div>
+    js : document.getElementById("test");
+
+
+    2.getElementByName
+    3.getElementByTagName
+    4.getElementByTagNameNS
+    5.getElementByClassName
+
+    * querySelector & querySelectorAll
+    1. querySelector("#아이디명")
+    html : <div id="test"></div>
+    js : document.querySelector("#test");
+    2. querySelector("[name")
+    3. querySelector(".클래스명")
+    - 해당 클래스를 가진 첫번째 요소
+    - 해당 클래스를 가진 모든 요소 : querySelectorAll(".클래스명")
+    4. querySelector("태그이름")
+    - 해당하는 첫 번째 요소
+    - 해당하는 모든 요소 : querySelectorAll("태그이름")
+*/

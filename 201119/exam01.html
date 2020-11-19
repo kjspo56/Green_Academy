@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        body,
+        input,
+        button {
+            font-size: 24px;
+        }
+
+        .redText {
+            color: red;
+            border: 2px solid #f00
+        }
+
+        .blueText {
+            color: blue
+        }
+
+        .greenText {
+            color: green
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <p id="changeText">클릭한 버튼에 따라 다른 스타일이 적용 됩니다.</p>
+    <p><button type="button" id="rBtn">빨강</button></p>
+    <p><button type="button" id="bBtn">파랑</button></p>
+    <p><button type="button" id="gBtn">초록</button></p>
+
+    <script type="text/javascript">
+        /* 객체 생성 : html 요소를 가져와 변수에 저장하기 */
+        //본방식
+        //document.getElementById("changeText").className = "redText";
+
+        var rBtn = document.getElementById("rBtn");
+        var bBtn = document.getElementById("bBtn");
+        var gBtn = document.getElementById("gBtn");
+        
+        /*
+            object.eventHandler = function(){   }; //어떤태그를 ~~ 했을때까지 기다렸다가 { } 를 해준다.
+            빨강 버튼을 클릭했을 때 문장의 글자색을 빨강으로 바꾸기
+        */
+        rBtn.onclick = function(){
+            document.getElementById("changeText").className = "redText"
+        };
+        bBtn.onclick = function(){
+            document.getElementById("changeText").className = "blueText"
+        };
+        gBtn.onclick = function(){
+            document.getElementById("changeText").className = "greenText"
+        };        
+
+        // function redColor() {
+        //     var txt = document.getElementById("changeText");
+        //     txt.className = "redText";
+        // };
+        // function blueColor() {
+        //     document.getElementById("changeText").className = "blueText";
+        // };
+        // function greenColor() {
+        //     document.getElementById("changeText").className = "greenText";
+        // };
+    </script>
+
+</body>
+
+</html>
