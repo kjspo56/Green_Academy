@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입#2</title>
     <script type="text/javascript">
-        function form_check() {
+        function form_check(frm) {
             //객체 생성
             var uname = document.getElementById("uname");
 
@@ -18,7 +18,11 @@
             //  if(uname.value !=""){ if(!uname.value) 이렇게도 사용 할 수 있음. 값이 없다면
 
                 alert("이름을 입력하세요.");
+                
+                return false;
             };
+            
+            frm.submit();
         };
     </script>
 </head>
@@ -95,7 +99,7 @@
             </p>
             <!--데이터를 전달해줘야하기때문에 submit로 해봤음-->
             <p>
-                <button type="submit" onclick="form_check()">회원가입</button>
+                <button type="button" onclick="form_check()">회원가입</button>
                 <button type="button">돌아가기</button>
             </p>
         </fieldset>
