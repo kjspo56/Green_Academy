@@ -1,0 +1,127 @@
+html,body{ margin:0px; }
+
+/*------ header------*/
+header{text-align: center;
+    position: sticky;
+    top:0;
+    background: #fff;
+}
+h1{
+   
+}
+header > nav{ 
+    background: black;   
+    height: 60px; width: ;
+   
+}
+header > nav a{
+    color:rgb(255, 255, 255);
+    
+    width:200px;
+    line-height: 60px;
+
+    display:inline-block;
+}
+header > nav a:hover{background:rgb(255, 187, 0);
+}
+
+
+/*------ main{}----- */
+main{}
+main section{
+    width:70%;
+    margin: 100px auto;
+}
+main section > h2{}
+main section > article{}
+main section > article h3{}
+main section > article .box_black{
+    background: yellow;
+    border:1px solid black;
+    padding:30px;
+}
+
+main section > article .box_black textarea{
+    padding:20px 0; line-height:2;
+    width:100%;
+}
+.tag_name{
+    background:black;
+    color:white;
+    width: 100%; height:auto;
+    font-size: 18px;
+    padding: 50px 0 0;
+    line-height: 2;
+}
+.tag_preview{}
+
+.float_01{
+    border: 2px solid #000;
+}
+.float_01 p{
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    margin:0;
+}
+.float_01 p img{ 
+    width:100%; vertical-align: top;
+}
+.float_01::after{
+    content:'';
+    clear:left;
+    display:block;
+}
+.float_01 p:nth-of-type(2){
+    white-space:pre-line;
+    padding-left: 60px;
+}
+.float_01 p:nth-of-type(2) a{
+    color: #777;
+}
+.float_01 p:nth-of-type(2) a::after{
+    content:'';
+    width: 15px; height: 15px;
+    display:inline-block;
+    vertical-align: middle;
+
+    background-image: url('../imgs/arrow.png');
+    background-repeat: no-repeat;
+}
+
+
+.float_02{ border:5px solid #ff0;}
+.float_02::after{
+    content:'';
+    clear:both;     display: block;
+}
+.float_02 figure{
+    width:30%; margin:0 5% 0 0;
+    float: left;
+}
+.float_02 figure:nth-of-type(3n){margin-right:0;}
+.float_02 figure p{margin:0;}
+.float_02 figure p img{width: 100%; vertical-align: top;}
+
+.float_02 figure figcaption{
+    background:#ff0;
+    text-align: center;
+    padding:15px 0;
+}
+
+.float_03{
+    border: 5px solid #ff0;
+}
+.float_03::after{
+    content:'';
+    clear: both; display: block;
+}
+.float_03 div{
+    float:left; width:50%;
+    white-space: pre-line;
+}
+.float_03 figure{ 
+    margin: 0; float:right;
+    width: 50%;
+ }
+.float_03 figure img{ width:100%; vertical-align: top;}

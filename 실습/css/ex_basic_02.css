@@ -1,0 +1,12 @@
+html,body{ margin: 0px; }
+
+.ex_02{
+    width: 567px; margin: 0 auto; 
+    padding:60px; box-sizing:border-box;}
+.ex_02 img{width:100%; vertical-align:  top;}
+.ex_02 figcaption{
+    padding:30px 0; border-bottom: 2px solid #333;
+    color:#383737;}
+
+.ex_02 figcaption em{font-size: 18px;}
+.ex_02 figcaption strong{font-size: 38px;}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/tag_basic.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>DOM Basic Tag</h1>
+    <nav>
+        <a href="#Display">Display</a>
+        <a href="#h1~h6">(H1~H6)tag</a>
+        <a href="#table">(table)tag</a>
+        <a href="#ul">(List ul,ol,dl)tag</a>
+     </nav>
+
+</header>
+
+<main role="main">
+    <section>
+        <h2><a name="Display">Display</a></h2>
+        <article>
+            <h3>Block</h3>
+            <div class="box_black">
+                <p>
+                    <b>tag</b> - h1~h6, div, header, main, footer, nav, ul, li, dl, 
+                      dt, dd, figure, figcaption
+                </p>                   
+                <p><b>특징</b> - 스타일 제약이 없음, 한줄 내리기 효과 있음</p>
+                <p><b>사용</b> - 그룹 또는 의미에 따라 달리 사용함</p>
+            </div>
+        </article>
+
+        <article>
+            <h3>inline</h3>
+            <div class="box_black">
+            
+                <p><b>tag</b> - img,a,span,em,strong,b,code</p>
+                <p><b>특징</b> width,height,margin,padding 스타일 제약 있음
+                (4개 중에 한가지라도 사용해야 한다면 inline-block으로 변경)</p>
+                <p><b>사용</b> - 가로형 콘텐츠일때 사용됨, block요소의 상위 요소로 위치할 수 없음</p>
+                
+                    <textarea>
+                    ex) <inline><block>사용</block></inline> X
+                        <block><inline>사용</inline></block> O
+                    </textarea>
+                </p>
+            </div>
+        </article>
+
+        <article>
+            <h3>inline-Block</h3>
+            <div class="box_black">
+                <p>
+                <p><b>tag</b> - input,select,button,textarea</p>
+                <p><b>사용</b> - 회원정보입력,버튼 등의 입력값에 사용</p>
+                <p><b>특징</b> - 가로형 콘텐츠를 만들기 위해 block 또는 inline요소들에게 사용할 수 있음.<br>
+                                줄내림 효과가 없을뿐 block요소와 유사함(스타일 제약이 없음) 
+                </p>
+            </div>
+        </article>
+    </section>    
+
+    <section>
+            <h2><a name="h1~h6">h1~h6 tag</a></h2>
+            <textarea class="tag_name">
+                <h1>큰 타이틀(문서에 한번 사용됨)</h1>
+                <h2>두번째로 큰 제목</h2>
+                <h3>세번째로 큰 제목</h3>
+                <h4>네번째로 큰 제목</h4>
+                <h5>다섯번째로 큰 제목</h5>
+                <h6>여섯번째로 큰 제목</h6>
+            </textarea>
+            <div class="tag_preview"></div>
+            <h1>큰 타이틀(문서에 한번 사용됨)</h1>
+            <h2>두번째로 큰 제목</h2>
+            <h3>세번째로 큰 제목</h3>
+            <h4>네번째로 큰 제목</h4>
+            <h5>다섯번째로 큰 제목</h5>
+            <h6>여섯번째로 큰 제목</h6>
+        
+    </section>
+
+    <section>
+        <h2><a name="table">table</a></h2>
+        <textarea class="tag_name">
+            <table border="1" cellspacing="10" cellpadding="10" >
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>날짜</th>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>공지사항입니다.</td>
+                    <td>2020-12-14 </td>
+                </tr>
+                <tr>
+                    <td>02</td>
+                    <td>공지사항입니다.</td>
+                    <td>2020-12-14</td>
+                </tr>
+                <tr>
+                    <td>03</td>
+                    <td>공지사항입니다.</td>
+                    <td>2020-12-14</td>
+                </tr>
+            </table>                
+         </textarea>
+        <div class="tag_preview">
+            <table border="1" cellspacing="10" cellpadding="10" >
+                <caption>공지사항</caption>
+                <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>날짜</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+
+                    <td>01</td>
+                    <td>공지사항입니다.</td>
+                    <td>2020-12-14 </td>
+                </tr>
+    
+                <tr>
+                    <td rowspan="2">02,03</td>
+                    <td colspan="2">
+                        공지사항입니다
+                         2020-12-14
+                        </td>
+                </tr>
+                <tr>
+                    
+                    <td>공지사항입니다.</td>
+                    <td>2020-12-14</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"> *table markup</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+      
+   
+
+            <h2><a name="ul">List ul</a></h2>
+            <article>
+                <h3>ex) 01</h3>
+            <textarea class="tag_name">
+                <!-- 화면코드 -->
+            <ul class="ul_list">
+                <!-- 화면 -->
+                <ul class="ul_list">
+                    <li>공지사항입니다.</li>
+                    <li>자유게시판입니다.</li>
+                    <li>고객상담실입니다.</li>
+                </ul>
+            </textarea>
+
+            <div class="tag_preview">
+                <!-- 화면 -->
+                <ul class="ul_list">
+                    <li>공지사항입니다.</li>
+                    <li>자유게시판입니다.</li>
+                    <li>고객상담실입니다.</li> 
+                </ul>
+            </div>
+        </article>
+      
+
+        <article>
+            <h3>ex) 02</h3>
+            <textarea class="tag_name">
+                <!-- 화면코드 -->
+            </textarea>
+            <div class="tag_preview">
+                <!-- 화면 -->
+                <ul class="ul_imgs">
+                    <h4>제목</h4>
+                    <li>
+                        <img src="imgs/다운로드 (2).jfif" alt=''>
+                        이미지 01
+                    </li>
+                    <li>
+                        <img src="imgs/다운로드 (1).jfif" alt="">
+                        이미지 02
+                    </li>
+                    <li>
+                        <img src="imgs/다운로드.jfif" alt="">
+                        이미지 03
+                    </li>
+                   
+                </ul>
+            </div>
+        </article>
+
+        <article>
+            <h3>ex) 03</h3>
+            <textarea class="tag_name">
+                <!--화면코드-->
+            </textarea>
+            <div class="tag_preview">
+                <!--화면-->
+                <ul class="ul_inline">
+                <li>
+                    <span>01</span>
+                    <span>공지사항입니다.</span>
+                    <span>2020-12-15</span>
+                </li>
+                <li>
+                    <span>01</span>
+                    <span>자유게시판입니다.</span>
+                    <span>2020-12-15</span>
+                </li>
+                <li>
+                    <span>01</span>
+                    <span>고객상담실입니다.</span>
+                    <span>2020-12-15</span>
+                </li>
+                </ul>
+            </div>
+        </article>
+    
+</main>
+
+
+<footer> 2020@copyright. </footer>
+
+<script>
+    var txt = document.querySelectorAll(' .tag_name');
+    txt.forEach((el)=>{
+        el.style.height = (el.scrollHeight -30)+'px';
+    })
+
+    </script>
+
+</body>
+</html>
