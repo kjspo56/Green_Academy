@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <style type="text/css">
+        body,input,button,select,option{font-size:24px}
+        input[type=checkbox]{width:24px;height:24px}
+        input[type=radio]{width:24px;height:24px}
+        span{font-size:16px;color:#f00}
+    </style>
+    <script type="text/javascript">
+        function form_check(frm){
+            // document.form1.uname
+            
+            // 객체 생성
+            var uname = document.getElementById("uname");
+            var uid = document.getElementById("uid");
+            var pwd = document.getElementById("pwd");
+            var repwd = document.getElementById("repwd");
+            var mobile = document.getElementById("mobile");
+            
+            if(!uname.value){ // if(uname.value == ""){ // 값이 없다면
+            // if(uname.value){ // if(uname.value != ""){ // 값이 있다면
+                
+                // alert("이름을 입력하세요.");
+                document.querySelector(".no_uname").textContent = "이름을 입력하세요.";
+                /*var txt_box = document.querySelector(".no_pnt_txt");
+                txt_box.textContent = "이름을 입력하세요.";*/
+                uname.focus();
+                return false;
+            };
+            
+            if(!uid.value){ 
+                var txt_box = document.querySelector(".no_uid");
+                txt_box.textContent = "아이디를 입력하세요.";
+                uid.focus();
+                return false;
+            };
+            var uid_len = uid.value.length;
+            if( uid_len < 4  ||  uid_len > 12 ){
+                alert("아이디는 4~12글자만 입력할 수 있습니다.");
+                uid.focus();
+                return false;
+            ;}
+            
+            if(!pwd.value.length < 4 || pwd_len > 16){
+                var txt = document.querySelector(".no_pwd");
+                txt.textContent = "비밀번호는 4-16 글자만 입력 할 수 있습니다.";
+                return false;
+            };
+
+            if(pwd.value != repwd.value){
+                alert("비밀번호를 확인해 주세요.");
+                repwd.focus();
+                return false;
+            };
+
+            var reg = /^[0-9]+$/g;
+            if(!reg.test(mobile.value)){
+                alert("전화번호는 숫자만 입력 할 수 있습니다.");
+                mobile.focus();
+                return false;
+            };
+
+            var male = document.getElementById("male");
+            var female = document.getElementById("female");
+
+            if(!male.checked && !female.checked){
+                alert("please Check a Radio!!!");
+                male.focus();
+                return false;
+            }
+
+            if(!apply.checke){
+                alert("약관 동의가 필요합니다");
+                apply.focus();
+                return false;
+            };
+            
+            // 폼 전송
+            // document.form1.submit()
+            frm.submit();
+        };
+        
+        function id_check(){
+            // window.open("팝업될 문서", "팝업된 문서이름", "옵션");
+            window.open("id_search.html", "", "width=500,height=300,left=100,top=100");
+        };
+
+        function addr_check(){
+            // window.open("팝업될 문서", "팝업된 문서이름", "옵션");
+            window.open("addr_search.html", "", "width=700,height=500,left=100,top=100");
+        };
+
+        function email_change(){
+            //alert("TEST");
+            var email_dns= document.getElementById("email_dns");
+            var email_sel= document.getElementById("email_sel");
+
+            var idx = email_sel.options.selectedIndex;
+            //alert(idx);
+
+            //var val = email_sel.options[1].text;
+            var val = email_sel.options[idx].value;
+            //alert(val);
+            email_dns.value = val;
+        };
+    </script>
+</head>
+<body>
+    <!--<form name="" action="데이터를 처리할 페이지 경로" method="데이터 전송 방식">-->
+    <form name="form1" action="insert.php" method="post">
+    <fieldset>
+        <legend>회원가입</legend>
+        <p>
+            <label>
+            이름
+            <input type="text" name="uname" id="uname">
+            <br>
+            <span class="no_uname"></span>
+            </label>
+        </p>
+        <p>
+            <label for="uid">아이디</label>
+            <input type="text" name="uid" id="uid">
+            <button type="button" onclick="id_check()">아이디 중복 확인</button>
+            <br>
+            <span class="no_uid"></span>
+            <br>
+            * 4~12 글자만 입력할 수 있습니다.
+        </p>
+        <p>
+            <label for="pwd">비밀번호</label>
+            <input type="text" name="pwd" id="pwd">
+            <span class="no_pwd"></span>
+        </p>
+        <p>
+            <label for="repwd">비밀번호 확인</label>
+            <input type="text" name="repwd" id="repwd">
+        </p>
+        <p>
+            <label for="mobile">전화번호</label>
+            <input type="text" name="mobile" id="mobile">
+            "-"없이 숫자만 입력
+        </p>
+        <p>
+            <label for="email_id">이메일</label>
+            <input type="text" name="email_id" id="email_id"> @
+            <input type="text" name="email_dns" id="email_dns">
+            <select name="email_sel" id="email_sel" onchange="email_change()">
+                <option value="">직접 입력</option>
+                <option value="naver.com">네이버</option>
+                <option value="hanmail.net">다음</option>
+                <option value="gmail.com">구글</option>
+            </select>
+        </p>
+        <p>
+            <label for="birth">생년월일</label>
+            <input type="text" name="birth" id="birth">
+            ex) 20201217
+        </p>
+        <p>
+            <label for="postalCode">우편번호</label>
+            <input type="text" name="postalCode" id="postalCode" size="6" readonly>
+            <button type="button" onclick="addr_check()">주소검색</button>
+            <br>
+            <label for="addr1">기본 주소</label>
+            <input type="text" name="addr1" id="addr1" size="30">
+            <br>
+            <label for="addr2">상세 주소</label>
+            <input type="text" name="addr2" id="addr2" size="30">
+        </p>
+        <p>
+            성별
+            <input type="radio" name="gender" id="male" value="m" checked>
+            <label for="male">남</label>
+            <input type="radio" name="gender" id="female" value="f">
+            <label for="female">여</label>
+        </p>
+        <p>
+            <input type="checkbox" name="apply" id="apply" value="y">
+            <label for="apply">sms 수신 동의</label>
+        </p>
+        <p>
+            <button type="button" onclick="form_check(this.form)">회원가입</button>
+            <button type="button">메인으로</button>
+        </p>
+    </fieldset>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
