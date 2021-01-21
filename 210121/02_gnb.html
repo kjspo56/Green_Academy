@@ -26,6 +26,7 @@ header{padding-top:80px;border-bottom:1px solid #333;height:40px}
 $(document).ready(function(){
     $(".gnb>ul>li").mouseenter(function(){
 		//$(this).find("ul").slideDown("fast");
+	    	//$(".gnb ul ul").slideDown("fast");
 		$(".gnb ul ul, .nav_bg").slideDown("fast");
 	});
 
@@ -33,6 +34,7 @@ $(document).ready(function(){
 		//$(this).find("ul").slideUp("fast");
 		$(".gnb ul ul, .nav_bg").slideUp("fast");
 		//전체배경까지 생기는 네이게이션을 만들어보았음!
+		//.nav_bg를 없애면 네이게이션의 배경이 사라질꺼다!
 	})
 });
 </script>
