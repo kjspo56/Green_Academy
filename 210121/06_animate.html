@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>animate</title>
+<style type="text/css">
+body{font-size:26px}
+#pop{width:200px;height:120px;position:absolute;
+		left:50px;top:50px;background:#09f}
+        .big_box{width: 800px; height: 300px;}
+        .small_box{width: 600px; height: 200px;}
+</style>
+<script type="text/javascript" src="js/jquery-3.5.1.min.js">
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("a:first").click(function(){
+	//$("#pop").addClass("big_box");
+    $("#pop").stop().animate({width:800, height:300, left:200, top:200}, 2000);
+    });
+
+    $("a:last").click(function(){
+    $("#pop").stop().animate({width:200, height:120, left:50, top:50}, 2000);
+    });
+
+});
+</script>
+</head>
+
+<body>
+<a href="#" class="a">크게</a>
+<a href="#" class="b">작게</a>
+<div id="pop"></div>
+</body>
+</html>
+
+<!--
+    #sub{color:red} 100점짜리
+    .txt{color:blue} 10점짜리
+    p{color:green} 1점짜리
+    <p class="txt" id="sub" style="color:pink"> 100점짜리
+-->
+
+
+
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>navigation</title>
+<style type="text/css">
+body,header,nav,div,ul,li{margin:0;padding:0}
+ul,li{list-style:none}
+a{text-decoration:none}
+header{padding-top:80px;border-bottom:1px solid #333;height:40px}
+.gnb h2{position:absolute;left:-9999px;top:-9999px}
+.gnb>ul{width:1000px;height:40px;margin:auto;background:#eee;
+    position:relative;z-index:3}
+.gnb>ul>li{font-size:20px;font-family:"나눔고딕";float:left;
+		width:20%;height:40px;line-height:40px;text-align:center}
+.gnb>ul>li>a{display:block;height:40px}
+.gnb ul ul{padding-top:20px;display:none;background:#aaa}
+.nav_bg{width:100%;height:220px;background:#999;
+    position:absolute;
+    left:0px;top:121px;
+    z-index:1;display:none}
+</style>
+<script type="text/javascript" src="js/jquery-3.5.1.min.js">
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".gnb>ul>li").mouseenter(function(){
+		//$(this).find("ul").slideDown("fast");
+		$(".gnb ul ul, .nav_bg").slideDown("fast");
+	});
+
+	$(".gnb>ul>li").mouseleave(function(){
+		//$(this).find("ul").slideUp("fast");
+		$(".gnb ul ul, .nav_bg").slideUp("fast");
+		//전체배경까지 생기는 네이게이션을 만들어보았음!
+	})
+});
+</script>
+</head>
+
+<body>
+<header>
+<nav class="gnb">
+<h2>주요메뉴</h2>
+<ul>
+	<li><a href="#">주메뉴</a>
+		<ul>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+		</ul>
+	</li>
+	<li><a href="#">주메뉴</a>
+		<ul>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+		</ul>
+	</li>
+	<li><a href="#">주메뉴</a>
+		<ul>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+		</ul>
+	</li>
+	<li><a href="#">주메뉴</a>
+		<ul>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+		</ul>
+	</li>
+	<li><a href="#">주메뉴</a>
+		<ul>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+			<li><a href="#">하위메뉴</a></li>
+		</ul>
+	</li>
+</ul>
+<div class="nav_bg"></div>
+</nav>
+</header>
+<main></main>
+<footer></footer>
+</body>
+</html>
